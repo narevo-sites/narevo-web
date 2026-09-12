@@ -1,0 +1,2076 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+<meta name="theme-color" content="#111111">
+<title>NAREVO Sites — Diseño web</title>
+
+<style>
+:root{
+  --black:#111;
+  --dark:#181818;
+  --purple:#6d35ff;
+  --purple2:#8c62ff;
+  --light:#f7f6f9;
+  --white:#fff;
+  --muted:#6e6e78;
+  --line:#e7e5eb;
+  --shadow:0 18px 50px rgba(20,10,40,.10);
+  --radius:24px;
+}
+
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  color:var(--black);
+  background:#fff;
+  line-height:1.5;
+  overflow-x:hidden;
+}
+
+a{
+  text-decoration:none;
+  color:inherit;
+}
+
+button,input,textarea,select{
+  font:inherit;
+}
+
+.container{
+  width:min(1160px,92%);
+  margin:auto;
+}
+
+section{
+  padding:100px 0;
+}
+
+.tag{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  padding:8px 13px;
+  border:1px solid var(--line);
+  border-radius:999px;
+  background:#fff;
+  font-size:12px;
+  font-weight:800;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+}
+
+.dot{
+  width:7px;
+  height:7px;
+  background:var(--purple);
+  border-radius:50%;
+}
+
+h1{
+  font-size:clamp(45px,7vw,88px);
+  line-height:.95;
+  letter-spacing:-.065em;
+}
+
+h2{
+  font-size:clamp(34px,5vw,58px);
+  line-height:1;
+  letter-spacing:-.05em;
+}
+
+h3{
+  font-size:22px;
+  line-height:1.1;
+}
+
+p{
+  color:var(--muted);
+}
+
+.btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+  padding:14px 20px;
+  border-radius:13px;
+  border:1px solid var(--black);
+  font-weight:800;
+  transition:.2s;
+  cursor:pointer;
+}
+
+.btn:hover{
+  transform:translateY(-2px);
+}
+
+.btn.primary{
+  background:var(--black);
+  color:#fff;
+}
+
+.btn.purple{
+  background:var(--purple);
+  border-color:var(--purple);
+  color:#fff;
+}
+
+.btn.light{
+  background:#fff;
+}
+
+header{
+  position:fixed;
+  z-index:20;
+  top:0;
+  left:0;
+  right:0;
+  background:rgba(255,255,255,.88);
+  backdrop-filter:blur(16px);
+  border-bottom:1px solid rgba(0,0,0,.06);
+}
+
+.nav{
+  height:72px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+
+.logo{
+  font-size:21px;
+  font-weight:950;
+  letter-spacing:-.07em;
+}
+
+.logo span{
+  color:var(--purple);
+}
+
+nav{
+  display:flex;
+  gap:26px;
+  font-size:14px;
+  font-weight:700;
+}
+
+nav a{
+  opacity:.75;
+}
+
+nav a:hover{
+  opacity:1;
+}
+
+.menu{
+  display:none;
+  background:none;
+  border:0;
+  font-size:27px;
+  cursor:pointer;
+}
+
+/* HERO */
+
+.hero{
+  padding-top:170px;
+  padding-bottom:80px;
+}
+
+.hero-grid{
+  display:grid;
+  grid-template-columns:1.05fr .95fr;
+  gap:55px;
+  align-items:center;
+}
+
+.hero h1{
+  max-width:720px;
+}
+
+.hero h1 span{
+  color:var(--purple);
+}
+
+.hero-copy{
+  font-size:18px;
+  max-width:600px;
+  margin:26px 0;
+}
+
+.actions{
+  display:flex;
+  gap:12px;
+  flex-wrap:wrap;
+}
+
+.hero-note{
+  margin-top:18px;
+  font-size:12px;
+}
+
+/* MOCKUP */
+
+.browser{
+  border:1px solid #ddd;
+  border-radius:26px;
+  background:#fff;
+  box-shadow:var(--shadow);
+  overflow:hidden;
+  transform:rotate(1deg);
+}
+
+.browser-top{
+  height:42px;
+  background:#f1f0f3;
+  display:flex;
+  align-items:center;
+  padding:0 15px;
+  gap:7px;
+}
+
+.browser-top i{
+  width:8px;
+  height:8px;
+  border-radius:50%;
+  background:#bbb;
+}
+
+.browser-screen{
+  min-height:380px;
+  padding:30px;
+  background:linear-gradient(
+    135deg,
+    #111 0%,
+    #28202f 55%,
+    #6d35ff 150%
+  );
+  color:#fff;
+}
+
+.mini-brand{
+  font-weight:900;
+  font-size:15px;
+}
+
+.mini-brand span{
+  color:#a98dff;
+}
+
+.mini-screen-title{
+  font-size:48px;
+  font-weight:900;
+  line-height:.95;
+  letter-spacing:-.06em;
+  margin-top:70px;
+}
+
+.mini-screen-title span{
+  color:#a98dff;
+}
+
+.mini-card{
+  margin-top:35px;
+  padding:15px;
+  border:1px solid rgba(255,255,255,.18);
+  border-radius:15px;
+  background:rgba(255,255,255,.06);
+}
+
+/* SECCIONES */
+
+.section-head{
+  display:flex;
+  justify-content:space-between;
+  gap:30px;
+  align-items:end;
+  margin-bottom:48px;
+}
+
+.section-head p{
+  max-width:480px;
+}
+
+.dark{
+  background:var(--dark);
+  color:#fff;
+}
+
+.dark p{
+  color:#aaa;
+}
+
+.grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:18px;
+}
+
+.card{
+  padding:28px;
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+  background:#fff;
+}
+
+.dark .card{
+  background:#202020;
+  border-color:#303030;
+}
+
+.icon{
+  width:44px;
+  height:44px;
+  border-radius:13px;
+  background:#f0ebff;
+  color:var(--purple);
+  display:grid;
+  place-items:center;
+  font-weight:950;
+  margin-bottom:25px;
+}
+
+.card p{
+  margin-top:10px;
+  font-size:14px;
+}
+
+/* DISEÑOS PROFESIONALES */
+
+.designs-pro{
+  background:#f7f6f9;
+}
+
+.designs-heading{
+  display:grid;
+  grid-template-columns:1fr .55fr;
+  gap:50px;
+  align-items:end;
+  margin-bottom:48px;
+}
+
+.designs-heading h2{
+  max-width:760px;
+}
+
+.designs-intro{
+  border-left:2px solid var(--purple);
+  padding-left:20px;
+}
+
+.designs-intro span{
+  font-size:11px;
+  font-weight:950;
+  letter-spacing:.12em;
+  color:var(--purple);
+}
+
+.designs-intro p{
+  font-size:14px;
+  margin-top:9px;
+}
+
+.designs-feature{
+  display:grid;
+  grid-template-columns:1.65fr .65fr;
+  gap:16px;
+}
+
+.design-main{
+  height:560px;
+}
+
+.design-side{
+  display:grid;
+  grid-template-rows:1fr 1fr;
+  gap:16px;
+}
+
+.design-small{
+  min-height:272px;
+}
+
+.designs-pro .visual{
+  background:
+    radial-gradient(
+      circle at 75% 20%,
+      rgba(140,98,255,.55),
+      transparent 28%
+    ),
+    linear-gradient(
+      135deg,
+      #111 0%,
+      #241a34 58%,
+      #6d35ff 150%
+    );
+  border:0;
+  box-shadow:0 24px 70px rgba(20,10,40,.16);
+}
+
+.design-overlay{
+  position:absolute;
+  z-index:2;
+  left:28px;
+  right:28px;
+  bottom:28px;
+  color:#fff;
+}
+
+.design-overlay span{
+  display:inline-block;
+  font-size:10px;
+  font-weight:950;
+  letter-spacing:.12em;
+  padding:7px 10px;
+  border:1px solid rgba(255,255,255,.22);
+  border-radius:999px;
+  background:rgba(0,0,0,.2);
+  backdrop-filter:blur(8px);
+}
+
+.design-overlay strong{
+  display:block;
+  font-size:34px;
+  letter-spacing:-.045em;
+  margin-top:12px;
+}
+
+.design-overlay small{
+  display:block;
+  color:#c9c3d3;
+  margin-top:4px;
+  font-size:12px;
+}
+
+.design-overlay.compact{
+  left:20px;
+  bottom:20px;
+}
+
+.design-overlay.compact strong{
+  font-size:20px;
+}
+
+.design-label{
+  position:absolute;
+  z-index:3;
+  top:18px;
+  left:18px;
+  color:#fff;
+  font-size:10px;
+  font-weight:950;
+  letter-spacing:.12em;
+  padding:7px 10px;
+  border-radius:999px;
+  background:rgba(0,0,0,.25);
+  backdrop-filter:blur(8px);
+}
+
+.design-bottom{
+  display:grid;
+  grid-template-columns:1fr 1.5fr auto;
+  gap:25px;
+  align-items:center;
+  padding-top:25px;
+}
+
+.design-number{
+  font-weight:950;
+  font-size:13px;
+  letter-spacing:.08em;
+}
+
+.design-number span{
+  color:var(--purple);
+}
+
+.design-bottom p{
+  font-size:13px;
+}
+
+.design-bottom .btn{
+  white-space:nowrap;
+}
+
+/* IMÁGENES */
+
+.visual{
+  min-height:260px;
+  border-radius:var(--radius);
+  overflow:hidden;
+  position:relative;
+  border:1px solid var(--line);
+  background:#eee;
+}
+
+.visual::before{
+  content:"IMAGEN";
+  position:absolute;
+  inset:0;
+  display:grid;
+  place-items:center;
+  color:#aaa;
+  font-weight:900;
+  letter-spacing:.12em;
+  font-size:12px;
+}
+
+.visual::after{
+  content:"";
+  position:absolute;
+  inset:12px;
+  border:1px dashed #cfcdd5;
+  border-radius:17px;
+}
+
+/* PROYECTOS */
+
+.project{
+  padding:0;
+  overflow:hidden;
+}
+
+.project-img{
+  height:240px;
+  background:linear-gradient(135deg,#111,#352060);
+  position:relative;
+}
+
+.project-img:before{
+  content:"PROYECTO";
+  position:absolute;
+  inset:0;
+  display:grid;
+  place-items:center;
+  color:#b9a5ff;
+  font-weight:900;
+}
+
+.project-info{
+  padding:25px;
+}
+
+.project-info p{
+  font-size:14px;
+  margin-top:8px;
+}
+
+/* PLANES */
+
+.plans{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:18px;
+}
+
+.plan{
+  border:1px solid var(--line);
+  border-radius:26px;
+  padding:30px;
+  background:#fff;
+}
+
+.plan.featured{
+  background:#17131f;
+  color:#fff;
+  border-color:#17131f;
+  transform:translateY(-8px);
+}
+
+.plan p{
+  font-size:14px;
+  margin:9px 0 20px;
+}
+
+.plan.featured p{
+  color:#aaa;
+}
+
+.price{
+  font-size:36px;
+  font-weight:950;
+  letter-spacing:-.05em;
+  margin-bottom:22px;
+}
+
+.price small{
+  font-size:13px;
+  font-weight:600;
+  color:#999;
+}
+
+.plan ul{
+  list-style:none;
+  display:grid;
+  gap:11px;
+  margin-bottom:25px;
+}
+
+.plan li{
+  font-size:14px;
+}
+
+.plan li:before{
+  content:"✓";
+  color:var(--purple);
+  font-weight:900;
+  margin-right:9px;
+}
+
+.plan .btn{
+  width:100%;
+}
+
+/* CALCULADORA */
+
+.calculator{
+  display:grid;
+  grid-template-columns:1fr .75fr;
+  gap:20px;
+}
+
+.box{
+  padding:30px;
+  border-radius:var(--radius);
+  border:1px solid #333;
+  background:#202020;
+}
+
+label{
+  display:block;
+  font-weight:800;
+  font-size:13px;
+  margin-bottom:8px;
+}
+
+select,input,textarea{
+  width:100%;
+  padding:13px 14px;
+  border:1px solid #d9d7df;
+  border-radius:12px;
+  background:#fff;
+  outline:none;
+}
+
+select:focus,
+input:focus,
+textarea:focus{
+  border-color:var(--purple);
+}
+
+.field{
+  margin-bottom:18px;
+}
+
+.total{
+  font-size:50px;
+  font-weight:950;
+  letter-spacing:-.06em;
+  margin:15px 0;
+}
+
+.result-note{
+  font-size:12px;
+  color:#aaa;
+}
+
+/* STATS */
+
+.stats{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:1px;
+  background:#333;
+  border:1px solid #333;
+  border-radius:22px;
+  overflow:hidden;
+}
+
+.stat{
+  padding:28px;
+  background:#181818;
+  color:#fff;
+}
+
+.stat strong{
+  font-size:34px;
+  display:block;
+}
+
+.stat span{
+  font-size:12px;
+  color:#999;
+}
+
+/* FAQ */
+
+.faq{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:12px;
+}
+
+details{
+  border:1px solid var(--line);
+  border-radius:16px;
+  padding:18px 20px;
+}
+
+summary{
+  cursor:pointer;
+  font-weight:850;
+  list-style:none;
+}
+
+summary::-webkit-details-marker{
+  display:none;
+}
+
+details p{
+  font-size:14px;
+  margin-top:12px;
+}
+
+/* CONTACTO */
+
+.contact{
+  display:grid;
+  grid-template-columns:.8fr 1.2fr;
+  gap:45px;
+  align-items:start;
+}
+
+.contact-copy p{
+  margin-top:18px;
+  max-width:440px;
+}
+
+.form{
+  display:grid;
+  gap:14px;
+}
+
+textarea{
+  min-height:130px;
+  resize:vertical;
+}
+
+/* FOOTER */
+
+footer{
+  background:#111;
+  color:#fff;
+  padding:45px 0;
+}
+
+.footer-row{
+  display:flex;
+  justify-content:space-between;
+  gap:20px;
+  align-items:center;
+}
+
+footer p{
+  color:#888;
+  font-size:13px;
+}
+
+/* ANIMACIONES */
+
+.reveal{
+  opacity:0;
+  transform:translateY(12px);
+  transition:.7s ease;
+}
+
+.reveal.show{
+  opacity:1;
+  transform:none;
+}
+
+.float{
+  animation:softFloat 7s ease-in-out infinite;
+}
+
+@keyframes softFloat{
+  0%,100%{
+    transform:translateY(0);
+  }
+
+  50%{
+    transform:translateY(-3px);
+  }
+}
+
+.letters span{
+  display:inline-block;
+  animation:letterMove 6s ease-in-out infinite;
+}
+
+@keyframes letterMove{
+  0%,88%,100%{
+    transform:translateY(0);
+  }
+
+  92%{
+    transform:translateY(-1.5px);
+  }
+
+  96%{
+    transform:translateY(.5px);
+  }
+}
+
+/* CELULAR */
+
+@media(max-width:850px){
+
+  nav{
+    display:none;
+    position:absolute;
+    top:72px;
+    left:0;
+    right:0;
+    background:#fff;
+    padding:20px 4%;
+    border-bottom:1px solid var(--line);
+    flex-direction:column;
+    gap:18px;
+  }
+
+  nav.open{
+    display:flex;
+  }
+
+  .menu{
+    display:block;
+  }
+
+  section{
+    padding:75px 0;
+  }
+
+  .hero{
+    padding-top:125px;
+  }
+
+  .hero-grid,
+  .calculator,
+  .contact{
+    grid-template-columns:1fr;
+  }
+
+  .hero-grid{
+    gap:45px;
+  }
+
+  .browser{
+    transform:none;
+  }
+
+  .grid,
+  .plans{
+    grid-template-columns:1fr;
+  }
+
+  .plan.featured{
+    transform:none;
+  }
+
+  .designs-heading{
+    grid-template-columns:1fr;
+    gap:18px;
+  }
+
+  .designs-feature{
+    grid-template-columns:1fr;
+  }
+
+  .design-main{
+    height:420px;
+  }
+
+  .design-side{
+    grid-template-columns:1fr 1fr;
+    grid-template-rows:1fr;
+  }
+
+  .design-small{
+    min-height:230px;
+  }
+
+  .design-bottom{
+    grid-template-columns:1fr;
+    gap:12px;
+  }
+
+  .stats{
+    grid-template-columns:1fr 1fr;
+  }
+
+  .faq{
+    grid-template-columns:1fr;
+  }
+
+  .section-head{
+    display:block;
+  }
+
+  .section-head p{
+    margin-top:15px;
+  }
+}
+
+/* CELULAR PEQUEÑO */
+
+@media(max-width:520px){
+
+  .container{
+    width:min(92%,430px);
+  }
+
+  h1{
+    font-size:47px;
+  }
+
+  .hero-copy{
+    font-size:16px;
+  }
+
+  .design-main{
+    height:340px;
+  }
+
+  .design-side{
+    grid-template-columns:1fr;
+  }
+
+  .design-small{
+    min-height:220px;
+  }
+
+  .design-overlay strong{
+    font-size:27px;
+  }
+
+  .browser-screen{
+    min-height:330px;
+  }
+
+  .mini-screen-title{
+    font-size:40px;
+    margin-top:55px;
+  }
+
+  .stats{
+    grid-template-columns:1fr 1fr;
+  }
+
+  .stat strong{
+    font-size:28px;
+  }
+
+  .actions .btn{
+    width:100%;
+  }
+
+  .footer-row{
+    display:block;
+  }
+
+  .footer-row p{
+    margin-top:10px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="container nav">
+
+    <a class="logo" href="#inicio">
+      NAREVO<span>.</span>
+    </a>
+
+    <nav id="nav">
+      <a href="#servicios">Servicios</a>
+      <a href="#diseños">Diseños</a>
+      <a href="#proyectos">Proyectos</a>
+      <a href="#planes">Planes</a>
+      <a href="#faq">FAQ</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
+
+    <button class="menu" id="menu" aria-label="Abrir menú">
+      ☰
+    </button>
+
+  </div>
+</header>
+
+<main id="inicio">
+
+<!-- HERO -->
+
+<section class="hero">
+
+  <div class="container hero-grid">
+
+    <div class="reveal">
+
+      <div class="tag">
+        <i class="dot"></i>
+        NAREVO Sites
+      </div>
+
+      <h1 class="letters" style="margin-top:22px">
+        Tu negocio.<br>
+        <span>Tu página.</span><br>
+        Tu futuro.
+      </h1>
+
+      <p class="hero-copy">
+        Diseñamos sitios web modernos, rápidos y adaptados a celulares
+        para marcas, emprendimientos y profesionales.
+      </p>
+
+      <div class="actions">
+
+        <a class="btn primary" href="#contacto">
+          Quiero mi página →
+        </a>
+
+        <a class="btn light" href="#servicios">
+          Ver servicios
+        </a>
+
+      </div>
+
+      <p class="hero-note">
+        Diseño + desarrollo + lanzamiento en un solo lugar.
+      </p>
+
+    </div>
+
+    <div class="browser float reveal">
+
+      <div class="browser-top">
+        <i></i>
+        <i></i>
+        <i></i>
+      </div>
+
+      <div class="browser-screen">
+
+        <div class="mini-brand">
+          NAREVO<span>.</span>
+        </div>
+
+        <div class="mini-screen-title">
+          Tu marca<br>
+          <span>online.</span>
+        </div>
+
+        <div class="mini-card">
+          Una presencia digital pensada para vos.
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- SERVICIOS -->
+
+<section id="servicios" class="dark">
+
+  <div class="container">
+
+    <div class="section-head">
+
+      <div>
+
+        <div class="tag"
+          style="background:#202020;border-color:#333;color:#fff">
+
+          Servicios
+
+        </div>
+
+        <h2 style="margin-top:18px">
+          Todo lo que tu web necesita.
+        </h2>
+
+      </div>
+
+      <p>
+        Desde una página simple hasta una experiencia web completa,
+        podemos construirla por etapas.
+      </p>
+
+    </div>
+
+
+    <div class="grid">
+
+      <article class="card reveal">
+        <div class="icon">01</div>
+        <h3>Páginas web</h3>
+        <p>
+          Landing pages y sitios profesionales pensados para presentar
+          una marca.
+        </p>
+      </article>
+
+      <article class="card reveal">
+        <div class="icon">02</div>
+        <h3>Diseño personalizado</h3>
+        <p>
+          Colores, tipografías, secciones y estilo adaptados a cada proyecto.
+        </p>
+      </article>
+
+      <article class="card reveal">
+        <div class="icon">03</div>
+        <h3>Responsive</h3>
+        <p>
+          La web se adapta a celulares, tablets y computadoras.
+        </p>
+      </article>
+
+      <article class="card reveal">
+        <div class="icon">04</div>
+        <h3>Velocidad</h3>
+        <p>
+          Código organizado y una experiencia rápida para los visitantes.
+        </p>
+      </article>
+
+      <article class="card reveal">
+        <div class="icon">05</div>
+        <h3>Galerías</h3>
+        <p>
+          Espacios visuales para productos, trabajos, proyectos o fotografías.
+        </p>
+      </article>
+
+      <article class="card reveal">
+        <div class="icon">06</div>
+        <h3>Escalable</h3>
+        <p>
+          Podemos empezar simple y sumar nuevas funciones más adelante.
+        </p>
+      </article>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- DISEÑOS -->
+
+<section id="diseños" class="designs-pro">
+
+  <div class="container">
+
+    <div class="designs-heading reveal">
+
+      <div>
+
+        <div class="tag">
+          <i class="dot"></i>
+          Dirección visual
+        </div>
+
+        <h2 style="margin-top:18px">
+          Diseños que hacen que una marca se vea profesional.
+        </h2>
+
+      </div>
+
+      <div class="designs-intro">
+
+        <span>01 — IDENTIDAD</span>
+
+        <p>
+          Diseño web pensado para transmitir confianza,
+          ordenar la información y destacar lo importante.
+        </p>
+
+      </div>
+
+    </div>
+
+
+    <div class="designs-feature">
+
+      <div class="design-main visual float">
+
+        <div class="design-overlay">
+
+          <span>
+            PROYECTO DESTACADO
+          </span>
+
+          <strong>
+            Web corporativa
+          </strong>
+
+          <small>
+            Espacio preparado para una captura horizontal
+          </small>
+
+        </div>
+
+      </div>
+
+
+      <div class="design-side">
+
+        <div class="design-small visual float">
+
+          <div class="design-label">
+            MOBILE
+          </div>
+
+          <div class="design-overlay compact">
+
+            <strong>
+              Experiencia móvil
+            </strong>
+
+          </div>
+
+        </div>
+
+
+        <div class="design-small visual float">
+
+          <div class="design-label">
+            DETALLE
+          </div>
+
+          <div class="design-overlay compact">
+
+            <strong>
+              Interfaz &amp; estilo
+            </strong>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <div class="design-bottom">
+
+      <div class="design-number">
+        NAREVO <span>/</span> DESIGN
+      </div>
+
+      <p>
+        Una selección visual que después reemplazaremos por las
+        imágenes reales de tus proyectos.
+      </p>
+
+      <a href="#proyectos" class="btn light">
+        Explorar proyectos →
+      </a>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- PROCESO -->
+
+<section class="dark">
+
+  <div class="container">
+
+    <div class="section-head">
+
+      <div>
+
+        <div class="tag"
+          style="background:#202020;border-color:#333;color:#fff">
+
+          Proceso
+
+        </div>
+
+        <h2 style="margin-top:18px">
+          De una idea a una web.
+        </h2>
+
+      </div>
+
+      <p>
+        Un proceso simple para que siempre sepas en qué parte estamos.
+      </p>
+
+    </div>
+
+
+    <div class="grid process">
+
+      <article class="card reveal">
+        <h3>Idea</h3>
+        <p>
+          Definimos qué necesitás y qué objetivo tendrá el sitio.
+        </p>
+      </article>
+
+      <article class="card reveal">
+        <h3>Diseño</h3>
+        <p>
+          Armamos la estructura visual, colores y contenido.
+        </p>
+      </article>
+
+      <article class="card reveal">
+        <h3>Desarrollo</h3>
+        <p>
+          Convertimos el diseño en una página funcional y responsive.
+        </p>
+      </article>
+
+      <article class="card reveal">
+        <h3>Lanzamiento</h3>
+        <p>
+          Publicamos el sitio y dejamos todo preparado para seguir creciendo.
+        </p>
+      </article>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- PROYECTOS -->
+
+<section id="proyectos">
+
+  <div class="container">
+
+    <div class="section-head">
+
+      <div>
+
+        <div class="tag">
+          <i class="dot"></i>
+          Portfolio
+        </div>
+
+        <h2 style="margin-top:18px">
+          Proyectos que podríamos crear.
+        </h2>
+
+      </div>
+
+      <p>
+        Esta sección está preparada para agregar tus proyectos reales
+        cuando NAREVO los tenga.
+      </p>
+
+    </div>
+
+
+    <div class="grid">
+
+      <article class="card project reveal">
+
+        <div class="project-img"></div>
+
+        <div class="project-info">
+
+          <h3>
+            Proyecto destacado
+          </h3>
+
+          <p>
+            Próximamente podrás ver aquí un proyecto real de NAREVO.
+          </p>
+
+        </div>
+
+      </article>
+
+
+      <article class="card project reveal">
+
+        <div class="project-img"></div>
+
+        <div class="project-info">
+
+          <h3>
+            Proyecto #2
+          </h3>
+
+          <p>
+            Espacio reservado para un futuro trabajo.
+          </p>
+
+        </div>
+
+      </article>
+
+
+      <article class="card project reveal">
+
+        <div class="project-img"></div>
+
+        <div class="project-info">
+
+          <h3>
+            Proyecto #3
+          </h3>
+
+          <p>
+            Espacio reservado para un futuro trabajo.
+          </p>
+
+        </div>
+
+      </article>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- PLANES -->
+
+<section id="planes" class="dark">
+
+  <div class="container">
+
+    <div class="section-head">
+
+      <div>
+
+        <div class="tag"
+          style="background:#202020;border-color:#333;color:#fff">
+
+          Planes
+
+        </div>
+
+        <h2 style="margin-top:18px">
+          Elegí cómo empezar.
+        </h2>
+
+      </div>
+
+      <p>
+        Precios de ejemplo para organizar la propuesta.
+      </p>
+
+    </div>
+
+
+    <div class="plans">
+
+      <article class="plan">
+
+        <h3>
+          Esencial
+        </h3>
+
+        <p>
+          Para empezar con una presencia online clara.
+        </p>
+
+        <div class="price">
+          $15.000
+          <small>ARS*</small>
+        </div>
+
+        <ul>
+          <li>Una página</li>
+          <li>Diseño responsive</li>
+          <li>Secciones básicas</li>
+          <li>Publicación</li>
+        </ul>
+
+        <a class="btn" href="#contacto">
+          Consultar
+        </a>
+
+      </article>
+
+
+      <article class="plan featured">
+
+        <h3>
+          Profesional
+        </h3>
+
+        <p>
+          Para marcas que quieren una web más completa.
+        </p>
+
+        <div class="price">
+          $30.000
+          <small>ARS*</small>
+        </div>
+
+        <ul>
+          <li>Varias secciones</li>
+          <li>Diseño personalizado</li>
+          <li>Galería</li>
+          <li>Formulario</li>
+          <li>Optimización móvil</li>
+        </ul>
+
+        <a class="btn purple" href="#contacto">
+          Consultar
+        </a>
+
+      </article>
+
+
+      <article class="plan">
+
+        <h3>
+          Avanzado
+        </h3>
+
+        <p>
+          Para proyectos que necesitan más funciones.
+        </p>
+
+        <div class="price">
+          $55.000
+          <small>ARS*</small>
+        </div>
+
+        <ul>
+          <li>Diseño avanzado</li>
+          <li>Más contenido</li>
+          <li>Funciones especiales</li>
+          <li>Preparada para crecer</li>
+        </ul>
+
+        <a class="btn" href="#contacto">
+          Consultar
+        </a>
+
+      </article>
+
+    </div>
+
+    <p style="font-size:11px;margin-top:18px">
+      *Valores ilustrativos de esta demo.
+    </p>
+
+  </div>
+
+</section>
+
+
+<!-- CALCULADORA -->
+
+<section class="dark" style="padding-top:20px">
+
+  <div class="container calculator">
+
+    <div>
+
+      <div class="tag"
+        style="background:#202020;border-color:#333;color:#fff">
+
+        Presupuesto
+
+      </div>
+
+      <h2 style="margin-top:18px">
+        Armá una idea de página.
+      </h2>
+
+      <p style="margin-top:15px">
+        Probá distintas opciones.
+        El resultado es orientativo.
+      </p>
+
+    </div>
+
+
+    <div class="box">
+
+      <div class="field">
+
+        <label for="tipo">
+          Tipo de sitio
+        </label>
+
+        <select id="tipo">
+
+          <option value="15000">
+            Landing — $15.000
+          </option>
+
+          <option value="30000">
+            Profesional — $30.000
+          </option>
+
+          <option value="55000">
+            Avanzado — $55.000
+          </option>
+
+        </select>
+
+      </div>
+
+
+      <div class="field">
+
+        <label for="extra">
+          Extra principal
+        </label>
+
+        <select id="extra">
+
+          <option value="0">
+            Sin extra
+          </option>
+
+          <option value="5000">
+            Galería — $5.000
+          </option>
+
+          <option value="4000">
+            Formulario — $4.000
+          </option>
+
+          <option value="5000">
+            Animaciones suaves — $5.000
+          </option>
+
+          <option value="7000">
+            Diseño especial — $7.000
+          </option>
+
+        </select>
+
+      </div>
+
+
+      <div class="total" id="total">
+        $15.000
+      </div>
+
+      <div class="result-note">
+        Estimación de demostración.
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- EXPERIENCIA -->
+
+<section>
+
+  <div class="container">
+
+    <div class="section-head">
+
+      <div>
+
+        <div class="tag">
+          <i class="dot"></i>
+          NAREVO
+        </div>
+
+        <h2 style="margin-top:18px">
+          Una web que puede crecer con tu proyecto.
+        </h2>
+
+      </div>
+
+      <p>
+        Primero una versión simple. Después nuevas páginas,
+        imágenes, funciones y mejoras.
+      </p>
+
+    </div>
+
+
+    <div class="stats">
+
+      <div class="stat">
+        <strong>01</strong>
+        <span>Idea inicial</span>
+      </div>
+
+      <div class="stat">
+        <strong>02</strong>
+        <span>Diseño visual</span>
+      </div>
+
+      <div class="stat">
+        <strong>03</strong>
+        <span>Desarrollo web</span>
+      </div>
+
+      <div class="stat">
+        <strong>04</strong>
+        <span>Lanzamiento</span>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- FAQ -->
+
+<section id="faq" style="background:var(--light)">
+
+  <div class="container">
+
+    <div class="section-head">
+
+      <div>
+
+        <div class="tag">
+          Preguntas
+        </div>
+
+        <h2 style="margin-top:18px">
+          Preguntas frecuentes.
+        </h2>
+
+      </div>
+
+      <p>
+        Una sección lista para responder las dudas
+        de futuros clientes.
+      </p>
+
+    </div>
+
+
+    <div class="faq">
+
+      <details>
+        <summary>
+          ¿La página funciona en celular?
+        </summary>
+
+        <p>
+          Sí. El diseño está preparado para adaptarse
+          a pantallas pequeñas, tablets y computadoras.
+        </p>
+
+      </details>
+
+
+      <details>
+        <summary>
+          ¿Puedo elegir los colores?
+        </summary>
+
+        <p>
+          Sí. El diseño puede adaptarse a la identidad visual
+          del proyecto.
+        </p>
+
+      </details>
+
+
+      <details>
+        <summary>
+          ¿Puedo agregar imágenes?
+        </summary>
+
+        <p>
+          Sí. Podemos definir dimensiones y preparar cada
+          espacio para sus imágenes.
+        </p>
+
+      </details>
+
+
+      <details>
+        <summary>
+          ¿Se puede mejorar después?
+        </summary>
+
+        <p>
+          Sí. Podemos sumar nuevas secciones y funciones
+          por etapas.
+        </p>
+
+      </details>
+
+
+      <details>
+        <summary>
+          ¿Incluye publicación?
+        </summary>
+
+        <p>
+          Según el proyecto final, podemos contemplar
+          la publicación del sitio.
+        </p>
+
+      </details>
+
+
+      <details>
+        <summary>
+          ¿Cómo contacto a NAREVO?
+        </summary>
+
+        <p>
+          Usá el formulario de abajo.
+        </p>
+
+      </details>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- CONTACTO -->
+
+<section id="contacto" class="dark">
+
+  <div class="container contact">
+
+    <div class="contact-copy">
+
+      <div class="tag"
+        style="background:#202020;border-color:#333;color:#fff">
+
+        Contacto
+
+      </div>
+
+      <h2 style="margin-top:18px">
+        Hablemos de tu próxima web.
+      </h2>
+
+      <p>
+        Contanos qué necesitás y podremos convertir
+        la idea en una propuesta.
+      </p>
+
+    </div>
+
+
+    <form class="box form" id="contactForm">
+
+      <div class="field">
+
+        <label>
+          Nombre
+        </label>
+
+        <input
+          required
+          type="text"
+          placeholder="Tu nombre">
+
+      </div>
+
+
+      <div class="field">
+
+        <label>
+          Correo
+        </label>
+
+        <input
+          required
+          type="email"
+          placeholder="tu@email.com">
+
+      </div>
+
+
+      <div class="field">
+
+        <label>
+          ¿Qué página necesitás?
+        </label>
+
+        <textarea
+          required
+          placeholder="Contanos brevemente tu idea..."></textarea>
+
+      </div>
+
+
+      <button class="btn purple" type="submit">
+        Enviar consulta →
+      </button>
+
+
+      <p style="font-size:11px;color:#888">
+        Demo: este formulario todavía no envía mensajes a un correo real.
+      </p>
+
+    </form>
+
+  </div>
+
+</section>
+
+</main>
+
+
+<!-- FOOTER -->
+
+<footer>
+
+  <div class="container footer-row">
+
+    <div class="logo">
+      NAREVO<span>.</span>
+    </div>
+
+    <p>
+      © <span id="year"></span>
+      NAREVO Sites.
+      Proyecto web en desarrollo.
+    </p>
+
+  </div>
+
+</footer>
+
+
+<script>
+
+/* MENÚ */
+
+const menu = document.getElementById("menu");
+const nav = document.getElementById("nav");
+
+menu.addEventListener("click", () => {
+  nav.classList.toggle("open");
+});
+
+document.querySelectorAll("nav a").forEach(a => {
+
+  a.addEventListener("click", () => {
+    nav.classList.remove("open");
+  });
+
+});
+
+
+/* CALCULADORA */
+
+const total = document.getElementById("total");
+
+function updateTotal(){
+
+  const a = Number(
+    document.getElementById("tipo").value
+  );
+
+  const b = Number(
+    document.getElementById("extra").value
+  );
+
+  total.textContent =
+    "$" + (a+b).toLocaleString("es-AR");
+
+}
+
+document
+  .getElementById("tipo")
+  .addEventListener("change",updateTotal);
+
+document
+  .getElementById("extra")
+  .addEventListener("change",updateTotal);
+
+
+/* FORMULARIO */
+
+document
+  .getElementById("contactForm")
+  .addEventListener("submit",e => {
+
+    e.preventDefault();
+
+    alert(
+      "¡Consulta preparada! En la versión final conectaremos este formulario a un medio de contacto real."
+    );
+
+  });
+
+
+/* AÑO */
+
+document.getElementById("year").textContent =
+  new Date().getFullYear();
+
+
+/* ANIMACIONES */
+
+const observer =
+  new IntersectionObserver(entries => {
+
+    entries.forEach(entry => {
+
+      if(entry.isIntersecting){
+        entry.target.classList.add("show");
+      }
+
+    });
+
+  },{
+    threshold:.08
+  });
+
+
+document
+  .querySelectorAll(".reveal")
+  .forEach(el => observer.observe(el));
+
+</script>
+
+</body>
+  </html>
