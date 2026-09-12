@@ -1,0 +1,2483 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#09090b">
+<meta name="description" content="NAREVO Sites — diseño y desarrollo de sitios web modernos.">
+<title>NAREVO Sites — Tu negocio, una web mejor</title>
+
+<style>
+:root{
+  --black:#08080a;
+  --black2:#111116;
+  --white:#fff;
+  --gray:#f5f4f7;
+  --gray2:#e7e5eb;
+  --text:#15151a;
+  --muted:#777681;
+  --purple:#713cff;
+  --purple2:#9b7cff;
+  --radius:26px;
+  --shadow:0 25px 70px rgba(25,10,55,.14);
+}
+
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  font-family:Inter,Arial,Helvetica,sans-serif;
+  color:var(--text);
+  background:#fff;
+  overflow-x:hidden;
+}
+
+a{
+  color:inherit;
+  text-decoration:none;
+}
+
+button,input,textarea{
+  font:inherit;
+}
+
+.container{
+  width:min(1180px,92%);
+  margin:auto;
+}
+
+section{
+  padding:105px 0;
+}
+
+p{
+  color:var(--muted);
+  line-height:1.7;
+}
+
+h1,h2,h3{
+  letter-spacing:-.05em;
+}
+
+h1{
+  font-size:clamp(48px,8vw,94px);
+  line-height:.94;
+}
+
+h2{
+  font-size:clamp(36px,5vw,62px);
+  line-height:1;
+}
+
+h3{
+  line-height:1.1;
+}
+
+/* =========================
+   HEADER
+========================= */
+
+header{
+  position:fixed;
+  z-index:1000;
+  width:100%;
+  top:0;
+  left:0;
+  padding:15px 0;
+  transition:.3s;
+}
+
+header.scrolled{
+  background:rgba(255,255,255,.86);
+  backdrop-filter:blur(18px);
+  box-shadow:0 8px 35px rgba(0,0,0,.06);
+}
+
+.nav{
+  min-height:52px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+.logo{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  font-size:21px;
+  font-weight:950;
+}
+
+.logoMark{
+  width:37px;
+  height:37px;
+  border-radius:11px;
+  background:#111;
+  color:#fff;
+  display:grid;
+  place-items:center;
+  position:relative;
+  overflow:hidden;
+}
+
+.logoMark:after{
+  content:"";
+  position:absolute;
+  width:19px;
+  height:19px;
+  border:2px solid var(--purple);
+  transform:rotate(45deg);
+}
+
+.logoMark span{
+  position:relative;
+  z-index:2;
+}
+
+.navlinks{
+  display:flex;
+  gap:27px;
+  font-size:14px;
+  font-weight:800;
+}
+
+.navlinks a{
+  position:relative;
+}
+
+.navlinks a:after{
+  content:"";
+  position:absolute;
+  left:0;
+  right:100%;
+  bottom:-6px;
+  height:2px;
+  background:var(--purple);
+  transition:.25s;
+}
+
+.navlinks a:hover:after{
+  right:0;
+}
+
+.menu{
+  display:none;
+  border:0;
+  background:#111;
+  color:white;
+  border-radius:12px;
+  padding:10px 13px;
+  font-size:18px;
+}
+
+/* =========================
+   BOTONES
+========================= */
+
+.btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:9px;
+  padding:15px 20px;
+  border-radius:14px;
+  font-size:14px;
+  font-weight:850;
+  transition:.25s;
+}
+
+.btn:hover{
+  transform:translateY(-3px);
+}
+
+.btnPurple{
+  background:var(--purple);
+  color:white;
+  box-shadow:0 15px 35px rgba(113,60,255,.25);
+}
+
+.btnBlack{
+  background:#111;
+  color:white;
+}
+
+.btnWhite{
+  background:white;
+  color:#111;
+}
+
+.btnOutline{
+  border:1px solid var(--gray2);
+  background:white;
+}
+
+/* =========================
+   HERO
+========================= */
+
+.hero{
+  min-height:850px;
+  padding:150px 0 90px;
+  display:flex;
+  align-items:center;
+  position:relative;
+  overflow:hidden;
+
+  background:
+    radial-gradient(circle at 75% 25%,rgba(113,60,255,.16),transparent 25%),
+    radial-gradient(circle at 15% 75%,rgba(113,60,255,.08),transparent 28%),
+    #fff;
+}
+
+.heroGrid{
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+  opacity:.45;
+
+  background-image:
+    linear-gradient(rgba(0,0,0,.035) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(0,0,0,.035) 1px,transparent 1px);
+
+  background-size:55px 55px;
+
+  mask-image:linear-gradient(to bottom,black,transparent);
+}
+
+.heroContent{
+  position:relative;
+  z-index:2;
+
+  display:grid;
+  grid-template-columns:1.05fr .95fr;
+  gap:65px;
+  align-items:center;
+}
+
+.badge{
+  display:inline-flex;
+  align-items:center;
+  gap:9px;
+
+  border:1px solid var(--gray2);
+  border-radius:999px;
+
+  padding:8px 13px;
+  margin-bottom:25px;
+
+  font-size:11px;
+  font-weight:900;
+  letter-spacing:.09em;
+}
+
+.badge i{
+  width:7px;
+  height:7px;
+  border-radius:50%;
+  background:var(--purple);
+  box-shadow:0 0 0 5px rgba(113,60,255,.12);
+}
+
+.hero h1 span{
+  color:var(--purple);
+}
+
+.heroText{
+  max-width:620px;
+  font-size:18px;
+  margin:27px 0 30px;
+}
+
+.heroButtons{
+  display:flex;
+  gap:12px;
+  flex-wrap:wrap;
+}
+
+.heroChecks{
+  display:flex;
+  gap:25px;
+  flex-wrap:wrap;
+  margin-top:32px;
+
+  font-size:12px;
+  font-weight:800;
+}
+
+.heroChecks span{
+  color:var(--purple);
+  margin-right:5px;
+}
+
+/* =========================
+   MOCKUP
+========================= */
+
+.heroVisual{
+  min-height:510px;
+  display:grid;
+  place-items:center;
+  position:relative;
+}
+
+.browser{
+  width:min(530px,100%);
+  overflow:hidden;
+
+  border:1px solid #dedde4;
+  border-radius:25px;
+  background:white;
+
+  box-shadow:0 40px 90px rgba(25,10,55,.17);
+
+  transform:rotate(2deg);
+  transition:.5s;
+}
+
+.browser:hover{
+  transform:rotate(0) translateY(-8px);
+}
+
+.browserTop{
+  height:48px;
+  border-bottom:1px solid var(--gray2);
+
+  display:flex;
+  align-items:center;
+  gap:7px;
+  padding:0 15px;
+}
+
+.browserTop b{
+  width:9px;
+  height:9px;
+  border-radius:50%;
+  background:#ddd;
+}
+
+.browserBar{
+  flex:1;
+  height:25px;
+  margin-left:10px;
+  border-radius:8px;
+  background:#f2f1f5;
+}
+
+.browserBody{
+  height:370px;
+  padding:25px;
+
+  background:
+    radial-gradient(circle at 80% 20%,rgba(113,60,255,.2),transparent 30%),
+    linear-gradient(145deg,#fff,#f0edff);
+}
+
+.mockNav{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+
+  font-size:11px;
+  font-weight:900;
+}
+
+.mockLogo{
+  display:flex;
+  align-items:center;
+  gap:7px;
+}
+
+.mockLogo i{
+  width:20px;
+  height:20px;
+  border-radius:6px;
+  background:#111;
+}
+
+.mockHero{
+  margin-top:55px;
+  max-width:370px;
+}
+
+.mockHero small{
+  color:var(--purple);
+  font-size:10px;
+  font-weight:900;
+}
+
+.mockHero h3{
+  font-size:40px;
+  margin:10px 0;
+}
+
+.line{
+  width:72%;
+  height:8px;
+  border-radius:10px;
+  background:#ddd9e7;
+  margin:7px 0;
+}
+
+.line.short{
+  width:48%;
+}
+
+.mockButton{
+  display:inline-block;
+  margin-top:13px;
+  padding:9px 14px;
+  border-radius:8px;
+
+  background:#111;
+  color:white;
+
+  font-size:9px;
+  font-weight:800;
+}
+
+.float{
+  position:absolute;
+
+  padding:16px;
+
+  border:1px solid var(--gray2);
+  border-radius:18px;
+
+  background:rgba(255,255,255,.94);
+  backdrop-filter:blur(12px);
+
+  box-shadow:0 20px 50px rgba(20,10,45,.12);
+
+  animation:float 5s ease-in-out infinite;
+}
+
+.float strong{
+  display:block;
+  font-size:18px;
+}
+
+.float small{
+  color:var(--muted);
+  font-size:10px;
+}
+
+.float.one{
+  top:45px;
+  right:-5px;
+}
+
+.float.two{
+  left:-20px;
+  bottom:45px;
+  animation-delay:-2s;
+}
+
+@keyframes float{
+  0%,100%{transform:translateY(0)}
+  50%{transform:translateY(-7px)}
+}
+
+/* =========================
+   SECCIONES
+========================= */
+
+.sectionHead{
+  display:flex;
+  justify-content:space-between;
+  align-items:end;
+  gap:30px;
+
+  margin-bottom:45px;
+}
+
+.sectionHead p{
+  max-width:460px;
+}
+
+.tag{
+  display:inline-flex;
+
+  padding:8px 12px;
+  margin-bottom:17px;
+
+  border:1px solid var(--gray2);
+  border-radius:999px;
+
+  font-size:10px;
+  font-weight:900;
+  letter-spacing:.1em;
+}
+
+/* =========================
+   SERVICIOS
+========================= */
+
+.services{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:17px;
+}
+
+.card{
+  padding:29px;
+
+  border:1px solid var(--gray2);
+  border-radius:var(--radius);
+
+  background:white;
+
+  transition:.3s;
+}
+
+.card:hover{
+  transform:translateY(-7px);
+  box-shadow:var(--shadow);
+}
+
+.icon{
+  width:49px;
+  height:49px;
+
+  display:grid;
+  place-items:center;
+
+  margin-bottom:25px;
+
+  border-radius:14px;
+  background:#111;
+  color:white;
+
+  font-size:21px;
+}
+
+.card h3{
+  font-size:21px;
+}
+
+.card p{
+  margin-top:11px;
+  font-size:14px;
+}
+
+.card ul{
+  list-style:none;
+  display:grid;
+  gap:9px;
+
+  margin-top:20px;
+
+  font-size:12px;
+  font-weight:750;
+}
+
+.card li:before{
+  content:"✓";
+  color:var(--purple);
+  margin-right:8px;
+}
+
+/* =========================
+   PROYECTOS
+========================= */
+
+.projects{
+  background:#f5f4f7;
+}
+
+.projectGrid{
+  display:grid;
+  grid-template-columns:1.35fr .65fr;
+  gap:18px;
+}
+
+.project{
+  min-height:450px;
+
+  overflow:hidden;
+  position:relative;
+
+  border-radius:27px;
+  background:#19191e;
+
+  border:1px solid #29292f;
+}
+
+.project.small{
+  min-height:216px;
+}
+
+.projectStack{
+  display:grid;
+  gap:18px;
+}
+
+.project img{
+  position:absolute;
+  inset:0;
+
+  width:100%;
+  height:100%;
+
+  object-fit:cover;
+
+  opacity:.88;
+
+  transform:scale(1.03);
+
+  transition:
+    transform .8s ease,
+    opacity .5s ease;
+}
+
+.project:hover img{
+  transform:scale(1.075);
+  opacity:1;
+}
+
+.project:after{
+  content:"";
+
+  position:absolute;
+  inset:0;
+
+  pointer-events:none;
+
+  background:
+    linear-gradient(
+      to top,
+      rgba(0,0,0,.82),
+      rgba(0,0,0,.05) 70%
+    );
+}
+
+.projectContent{
+  position:absolute;
+  z-index:2;
+  inset:0;
+
+  padding:25px;
+
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+
+  color:white;
+}
+
+.projectBadge{
+  align-self:flex-start;
+
+  padding:7px 10px;
+
+  border:1px solid rgba(255,255,255,.2);
+  border-radius:999px;
+
+  background:rgba(255,255,255,.1);
+  backdrop-filter:blur(10px);
+
+  font-size:9px;
+  font-weight:900;
+}
+
+.projectInfo p{
+  color:#ddd;
+  font-size:12px;
+  margin-top:7px;
+}
+
+.projectInfo h3{
+  font-size:28px;
+}
+
+/* GALERÍA */
+
+.gallery{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:13px;
+
+  margin-top:18px;
+}
+
+.galleryItem{
+  height:190px;
+  overflow:hidden;
+
+  border-radius:20px;
+  background:#ddd;
+
+  position:relative;
+}
+
+.galleryItem img{
+  width:100%;
+  height:100%;
+
+  object-fit:cover;
+
+  transition:transform .7s;
+}
+
+.galleryItem:hover img{
+  transform:scale(1.07);
+}
+
+.galleryItem:nth-child(odd) img{
+  animation:imageA 6s ease-in-out infinite;
+}
+
+.galleryItem:nth-child(even) img{
+  animation:imageB 7s ease-in-out infinite;
+}
+
+@keyframes imageA{
+  0%,100%{
+    transform:translateY(0) scale(1.02);
+  }
+
+  50%{
+    transform:translateY(-3px) scale(1.025);
+  }
+}
+
+@keyframes imageB{
+  0%,100%{
+    transform:translateY(0) scale(1.02);
+  }
+
+  50%{
+    transform:translateY(3px) scale(1.025);
+  }
+}
+
+/* =========================
+   PROCESO
+========================= */
+
+.process{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:15px;
+}
+
+.step{
+  padding:25px;
+
+  border-top:2px solid #ddd;
+}
+
+.step b{
+  color:var(--purple);
+  font-size:12px;
+}
+
+.step h3{
+  margin:14px 0 9px;
+  font-size:21px;
+}
+
+.step p{
+  font-size:13px;
+}
+
+/* =========================
+   PLANES
+========================= */
+
+.plans{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:17px;
+}
+
+.plan{
+  padding:30px;
+
+  border:1px solid var(--gray2);
+  border-radius:26px;
+
+  background:white;
+}
+
+.plan.featured{
+  border:2px solid var(--purple);
+  box-shadow:0 20px 55px rgba(113,60,255,.12);
+
+  position:relative;
+}
+
+.best{
+  position:absolute;
+  right:16px;
+  top:16px;
+
+  padding:6px 9px;
+
+  border-radius:999px;
+
+  background:var(--purple);
+  color:white;
+
+  font-size:9px;
+  font-weight:900;
+}
+
+.price{
+  margin:18px 0 5px;
+
+  font-size:38px;
+  font-weight:950;
+  letter-spacing:-.06em;
+}
+
+.plan small{
+  color:var(--muted);
+}
+
+.plan ul{
+  list-style:none;
+
+  display:grid;
+  gap:10px;
+
+  margin:24px 0;
+
+  font-size:13px;
+  font-weight:700;
+}
+
+.plan li:before{
+  content:"✓";
+  color:var(--purple);
+  margin-right:8px;
+}
+
+/* =========================
+   MANTENIMIENTO
+========================= */
+
+.maintenance{
+  background:#0b0b0e;
+  color:white;
+}
+
+.maintenance p{
+  color:#aaa;
+}
+
+.maintGrid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:20px;
+}
+
+.maintBox{
+  padding:31px;
+
+  border:1px solid #2c2c33;
+  border-radius:26px;
+
+  background:#121216;
+}
+
+.maintBox h3{
+  font-size:29px;
+}
+
+.maintList{
+  display:grid;
+  gap:12px;
+
+  margin-top:25px;
+
+  font-size:13px;
+}
+
+.maintPrice{
+  margin-top:22px;
+
+  font-size:42px;
+  font-weight:950;
+}
+
+.maintPrice small{
+  color:#aaa;
+  font-size:13px;
+}
+
+/* =========================
+   CALCULADOR
+========================= */
+
+.calculator{
+  background:#f5f4f7;
+}
+
+.calcGrid{
+  display:grid;
+  grid-template-columns:1fr .8fr;
+  gap:20px;
+}
+
+.calcBox,
+.resultBox{
+  padding:28px;
+
+  border:1px solid var(--gray2);
+  border-radius:26px;
+
+  background:white;
+}
+
+.option{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+
+  padding:17px 0;
+
+  border-bottom:1px solid var(--gray2);
+
+  font-size:14px;
+  font-weight:750;
+}
+
+.option:last-child{
+  border-bottom:0;
+}
+
+.option input{
+  width:18px;
+  height:18px;
+  accent-color:var(--purple);
+}
+
+.resultBox{
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+
+  background:#111;
+  color:white;
+
+  border-color:#111;
+}
+
+.resultBox p{
+  color:#aaa;
+}
+
+.total{
+  margin:15px 0;
+
+  font-size:51px;
+  font-weight:950;
+  letter-spacing:-.06em;
+}
+
+/* =========================
+   FAQ
+========================= */
+
+.faq{
+  display:grid;
+  grid-template-columns:.8fr 1.2fr;
+  gap:55px;
+}
+
+details{
+  padding:20px 0;
+  border-top:1px solid var(--gray2);
+}
+
+details:last-child{
+  border-bottom:1px solid var(--gray2);
+}
+
+summary{
+  cursor:pointer;
+
+  display:flex;
+  justify-content:space-between;
+
+  font-weight:850;
+
+  list-style:none;
+}
+
+summary:after{
+  content:"+";
+  color:var(--purple);
+  font-size:22px;
+}
+
+details[open] summary:after{
+  content:"−";
+}
+
+details p{
+  padding:13px 30px 0 0;
+  font-size:14px;
+}
+
+/* =========================
+   CONTACTO
+========================= */
+
+.contact{
+  background:
+    radial-gradient(circle at 85% 30%,rgba(113,60,255,.2),transparent 30%),
+    #111116;
+
+  color:white;
+}
+
+.contactGrid{
+  display:grid;
+  grid-template-columns:1fr .8fr;
+  gap:35px;
+  align-items:center;
+}
+
+.contact p{
+  color:#aaa;
+  margin:18px 0 27px;
+}
+
+.contactLinks{
+  display:grid;
+  gap:11px;
+}
+
+.contactLink{
+  padding:17px;
+
+  border:1px solid #34343c;
+  border-radius:16px;
+
+  background:rgba(255,255,255,.03);
+
+  transition:.25s;
+}
+
+.contactLink:hover{
+  transform:translateX(5px);
+  border-color:#6240bd;
+}
+
+.contactLink b{
+  display:block;
+}
+
+.contactLink span{
+  color:#aaa;
+  font-size:12px;
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+footer{
+  padding:35px 0;
+
+  background:#08080a;
+  color:#999;
+}
+
+.footer{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:20px;
+
+  font-size:12px;
+}
+
+.footerLogo{
+  color:white;
+  font-weight:950;
+}
+
+/* =========================
+   WHATSAPP
+========================= */
+
+.whatsapp{
+  position:fixed;
+  z-index:1200;
+
+  right:20px;
+  bottom:20px;
+
+  width:58px;
+  height:58px;
+
+  display:grid;
+  place-items:center;
+
+  border-radius:50%;
+
+  background:#111;
+  color:white;
+
+  font-size:24px;
+
+  border:1px solid #333;
+
+  box-shadow:0 15px 40px rgba(0,0,0,.22);
+
+  transition:.25s;
+}
+
+.whatsapp:hover{
+  transform:translateY(-5px) scale(1.05);
+}
+
+/* =========================
+   ANIMACIONES
+========================= */
+
+.reveal{
+  opacity:0;
+  transform:translateY(25px);
+
+  transition:
+    opacity .7s ease,
+    transform .7s ease;
+}
+
+.reveal.show{
+  opacity:1;
+  transform:none;
+}
+
+.word{
+  display:inline-block;
+
+  animation:wordMove 5.5s ease-in-out infinite;
+}
+
+.word:nth-child(2){
+  animation-delay:-1s;
+}
+
+.word:nth-child(3){
+  animation-delay:-2s;
+}
+
+@keyframes wordMove{
+  0%,100%{
+    transform:translateY(0);
+  }
+
+  50%{
+    transform:translateY(-2px);
+  }
+}
+
+/* =========================
+   CELULAR
+========================= */
+
+@media(max-width:850px){
+
+  section{
+    padding:75px 0;
+  }
+
+  .navlinks{
+    display:none;
+
+    position:absolute;
+
+    top:70px;
+    left:4%;
+    right:4%;
+
+    padding:19px;
+
+    flex-direction:column;
+    gap:17px;
+
+    background:white;
+
+    border:1px solid var(--gray2);
+    border-radius:18px;
+
+    box-shadow:0 20px 45px rgba(0,0,0,.12);
+  }
+
+  .navlinks.open{
+    display:flex;
+  }
+
+  .menu{
+    display:block;
+  }
+
+  .hero{
+    min-height:auto;
+    padding:130px 0 70px;
+  }
+
+  .heroContent{
+    grid-template-columns:1fr;
+    gap:50px;
+  }
+
+  .heroVisual{
+    min-height:400px;
+  }
+
+  .browser{
+    transform:none;
+  }
+
+  .services,
+  .plans{
+    grid-template-columns:1fr;
+  }
+
+  .projectGrid{
+    grid-template-columns:1fr;
+  }
+
+  .projectStack{
+    grid-template-columns:1fr 1fr;
+  }
+
+  .project.small{
+    min-height:180px;
+  }
+
+  .gallery{
+    grid-template-columns:1fr 1fr;
+  }
+
+  .galleryItem{
+    height:150px;
+  }
+
+  .process{
+    grid-template-columns:1fr 1fr;
+  }
+
+  .maintGrid,
+  .calcGrid,
+  .faq,
+  .contactGrid{
+    grid-template-columns:1fr;
+  }
+
+  .sectionHead{
+    display:block;
+  }
+
+  .sectionHead p{
+    margin-top:15px;
+  }
+}
+
+@media(max-width:520px){
+
+  h1{
+    font-size:50px;
+  }
+
+  .heroText{
+    font-size:16px;
+  }
+
+  .heroButtons .btn{
+    width:100%;
+  }
+
+  .heroVisual{
+    min-height:340px;
+  }
+
+  .browserBody{
+    height:275px;
+  }
+
+  .mockHero{
+    margin-top:35px;
+  }
+
+  .mockHero h3{
+    font-size:29px;
+  }
+
+  .float{
+    padding:12px;
+  }
+
+  .float.one{
+    top:15px;
+    right:0;
+  }
+
+  .float.two{
+    left:0;
+    bottom:5px;
+  }
+
+  .projectStack{
+    grid-template-columns:1fr;
+  }
+
+  .project.small{
+    min-height:190px;
+  }
+
+  .process{
+    grid-template-columns:1fr;
+  }
+
+  .footer{
+    flex-direction:column;
+    align-items:flex-start;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header id="header">
+  <div class="container nav">
+
+    <a class="logo" href="#inicio">
+      <span class="logoMark">
+        <span>N</span>
+      </span>
+      NAREVO
+    </a>
+
+    <nav class="navlinks" id="navlinks">
+      <a href="#servicios">Servicios</a>
+      <a href="#proyectos">Proyectos</a>
+      <a href="#planes">Planes</a>
+      <a href="#proceso">Proceso</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
+
+    <button class="menu" id="menu">☰</button>
+
+  </div>
+</header>
+
+<main>
+
+<!-- =========================
+     HERO
+========================= -->
+
+<section class="hero" id="inicio">
+
+  <div class="heroGrid"></div>
+
+  <div class="container heroContent">
+
+    <div class="reveal">
+
+      <div class="badge">
+        <i></i>
+        NAREVO SITES · DISEÑO WEB
+      </div>
+
+      <h1>
+        Tu negocio.<br>
+        <span class="word">Una</span>
+        <span class="word">web</span>
+        <span class="word">mejor.</span>
+      </h1>
+
+      <p class="heroText">
+        Creamos sitios modernos, rápidos y adaptados al celular
+        para que tu negocio tenga una presencia digital profesional.
+      </p>
+
+      <div class="heroButtons">
+
+        <a
+          class="btn btnPurple"
+          href="https://wa.me/5492622364099?text=Hola%20NAREVO%2C%20quiero%20consultar%20por%20una%20web."
+          target="_blank"
+        >
+          Hablar con NAREVO ↗
+        </a>
+
+        <a
+          class="btn btnOutline"
+          href="#proyectos"
+        >
+          Ver proyectos ↓
+        </a>
+
+      </div>
+
+      <div class="heroChecks">
+        <div><span>✓</span> Responsive</div>
+        <div><span>✓</span> Código personalizado</div>
+        <div><span>✓</span> Soporte</div>
+      </div>
+
+    </div>
+
+    <div class="heroVisual reveal">
+
+      <div class="browser">
+
+        <div class="browserTop">
+          <b></b>
+          <b></b>
+          <b></b>
+          <div class="browserBar"></div>
+        </div>
+
+        <div class="browserBody">
+
+          <div class="mockNav">
+            <div class="mockLogo">
+              <i></i>
+              NAREVO
+            </div>
+
+            <span>MENU</span>
+          </div>
+
+          <div class="mockHero">
+
+            <small>
+              DISEÑO DIGITAL
+            </small>
+
+            <h3>
+              Ideas que se convierten en sitios.
+            </h3>
+
+            <div class="line"></div>
+            <div class="line short"></div>
+
+            <span class="mockButton">
+              CONOCER MÁS
+            </span>
+
+          </div>
+
+        </div>
+
+      </div>
+
+      <div class="float one">
+        <strong>100%</strong>
+        <small>adaptado a celular</small>
+      </div>
+
+      <div class="float two">
+        <strong>+ Diseño</strong>
+        <small>+ claridad · + confianza</small>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+
+<!-- =========================
+     SERVICIOS
+========================= -->
+
+<section id="servicios">
+
+  <div class="container">
+
+    <div class="sectionHead reveal">
+
+      <div>
+        <span class="tag">01 · SERVICIOS</span>
+
+        <h2>
+          Una web pensada<br>
+          para funcionar.
+        </h2>
+      </div>
+
+      <p>
+        No se trata solamente de que se vea bien.
+        La estructura, la velocidad y la experiencia
+        también importan.
+      </p>
+
+    </div>
+
+    <div class="services">
+
+      <article class="card reveal">
+
+        <div class="icon">✦</div>
+
+        <h3>Diseño web</h3>
+
+        <p>
+          Interfaces modernas y limpias,
+          creadas alrededor de la identidad
+          de cada negocio.
+        </p>
+
+        <ul>
+          <li>Diseño personalizado</li>
+          <li>Secciones claras</li>
+          <li>Animaciones sutiles</li>
+        </ul>
+
+      </article>
+
+
+      <article class="card reveal">
+
+        <div class="icon">⌁</div>
+
+        <h3>Desarrollo</h3>
+
+        <p>
+          Código responsive para que la página
+          funcione correctamente en celular,
+          tablet y computadora.
+        </p>
+
+        <ul>
+          <li>HTML · CSS · JavaScript</li>
+          <li>Responsive</li>
+          <li>Interacciones</li>
+        </ul>
+
+      </article>
+
+
+      <article class="card reveal">
+
+        <div class="icon">↗</div>
+
+        <h3>Presencia digital</h3>
+
+        <p>
+          Una página preparada para mostrar
+          servicios, proyectos y formas
+          de contacto.
+        </p>
+
+        <ul>
+          <li>Botón de WhatsApp</li>
+          <li>Contacto directo</li>
+          <li>Preparación para publicar</li>
+        </ul>
+
+      </article>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =========================
+     PROYECTOS
+========================= -->
+
+<section class="projects" id="proyectos">
+
+  <div class="container">
+
+    <div class="sectionHead reveal">
+
+      <div>
+        <span class="tag">02 · PROYECTOS</span>
+
+        <h2>
+          Diseños que<br>
+          llaman la atención.
+        </h2>
+      </div>
+
+      <p>
+        Esta sección está preparada para mostrar
+        los proyectos reales de NAREVO a medida
+        que vayamos incorporándolos.
+      </p>
+
+    </div>
+
+
+    <div class="projectGrid">
+
+      <article class="project reveal">
+
+        <img
+          src="proyecto-destacado-1.png"
+          alt="Proyecto destacado de NAREVO"
+        >
+
+        <div class="projectContent">
+
+          <span class="projectBadge">
+            PORTFOLIO NAREVO
+          </span>
+
+          <div class="projectInfo">
+
+            <h3>
+              Proyecto destacado
+            </h3>
+
+            <p>
+              Espacio preparado para presentar
+              el próximo trabajo real de NAREVO.
+            </p>
+
+          </div>
+
+        </div>
+
+      </article>
+
+
+      <div class="projectStack">
+
+        <article class="project small reveal">
+
+          <img
+            src="proyecto-destacado-2.png"
+            alt="Proyecto de NAREVO"
+          >
+
+          <div class="projectContent">
+
+            <span class="projectBadge">
+              PRÓXIMAMENTE
+            </span>
+
+            <div class="projectInfo">
+
+              <h3>
+                Proyecto #2
+              </h3>
+
+              <p>
+                Diseño · desarrollo
+              </p>
+
+            </div>
+
+          </div>
+
+        </article>
+
+
+        <article class="project small reveal">
+
+          <img
+            src="proyecto-destacado-3.png"
+            alt="Proyecto de NAREVO"
+          >
+
+          <div class="projectContent">
+
+            <span class="projectBadge">
+              PRÓXIMAMENTE
+            </span>
+
+            <div class="projectInfo">
+
+              <h3>
+                Proyecto #3
+              </h3>
+
+              <p>
+                Web · identidad digital
+              </p>
+
+            </div>
+
+          </div>
+
+        </article>
+
+      </div>
+
+    </div>
+
+
+    <!-- GALERÍA EXTRA -->
+
+    <div class="gallery">
+
+      <div class="galleryItem reveal">
+        <img
+          src="proyecto-destacado-4.png"
+          alt=""
+        >
+      </div>
+
+      <div class="galleryItem reveal">
+        <img
+          src="proyecto-destacado-5.png"
+          alt=""
+        >
+      </div>
+
+      <div class="galleryItem reveal">
+        <img
+          src="proyecto-destacado-6.png"
+          alt=""
+        >
+      </div>
+
+      <div class="galleryItem reveal">
+        <img
+          src="proyecto-destacado-7.png"
+          alt=""
+        >
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =========================
+     PROCESO
+========================= -->
+
+<section id="proceso">
+
+  <div class="container">
+
+    <div class="sectionHead reveal">
+
+      <div>
+        <span class="tag">03 · PROCESO</span>
+
+        <h2>
+          Simple para vos.<br>
+          Profesional por dentro.
+        </h2>
+      </div>
+
+      <p>
+        Vas a saber qué estamos haciendo
+        en cada etapa del proyecto.
+      </p>
+
+    </div>
+
+
+    <div class="process">
+
+      <div class="step reveal">
+        <b>01</b>
+        <h3>Consulta</h3>
+        <p>
+          Contanos qué necesitás
+          y qué querés conseguir.
+        </p>
+      </div>
+
+      <div class="step reveal">
+        <b>02</b>
+        <h3>Propuesta</h3>
+        <p>
+          Definimos estructura,
+          estilo y alcance.
+        </p>
+      </div>
+
+      <div class="step reveal">
+        <b>03</b>
+        <h3>Desarrollo</h3>
+        <p>
+          Construimos y ajustamos
+          cada detalle de la web.
+        </p>
+      </div>
+
+      <div class="step reveal">
+        <b>04</b>
+        <h3>Entrega</h3>
+        <p>
+          Revisamos el resultado
+          y dejamos todo preparado.
+        </p>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =========================
+     PLANES
+========================= -->
+
+<section id="planes">
+
+  <div class="container">
+
+    <div class="sectionHead reveal">
+
+      <div>
+        <span class="tag">04 · PLANES</span>
+
+        <h2>
+          Elegí tu punto<br>
+          de partida.
+        </h2>
+      </div>
+
+      <p>
+        Valores orientativos. El presupuesto final
+        depende de las características que necesite
+        cada proyecto.
+      </p>
+
+    </div>
+
+
+    <div class="plans">
+
+      <article class="plan reveal">
+
+        <h3>Inicial</h3>
+
+        <div class="price">
+          $15.000
+        </div>
+
+        <small>
+          precio orientativo
+        </small>
+
+        <ul>
+          <li>Landing de una página</li>
+          <li>Diseño responsive</li>
+          <li>Contacto por WhatsApp</li>
+          <li>Secciones básicas</li>
+        </ul>
+
+        <a
+          class="btn btnOutline"
+          href="https://wa.me/5492622364099?text=Hola%20NAREVO%2C%20me%20interesa%20el%20plan%20Inicial."
+          target="_blank"
+        >
+          Consultar
+        </a>
+
+      </article>
+
+
+      <article class="plan featured reveal">
+
+        <span class="best">
+          MÁS ELEGIDO
+        </span>
+
+        <h3>
+          Profesional
+        </h3>
+
+        <div class="price">
+          $30.000
+        </div>
+
+        <small>
+          precio orientativo
+        </small>
+
+        <ul>
+          <li>Web de varias secciones</li>
+          <li>Diseño personalizado</li>
+          <li>Animaciones sutiles</li>
+          <li>Formulario de contacto</li>
+          <li>Optimización responsive</li>
+        </ul>
+
+        <a
+          class="btn btnPurple"
+          href="https://wa.me/5492622364099?text=Hola%20NAREVO%2C%20me%20interesa%20el%20plan%20Profesional."
+          target="_blank"
+        >
+          Consultar
+        </a>
+
+      </article>
+
+
+      <article class="plan reveal">
+
+        <h3>
+          Avanzado
+        </h3>
+
+        <div class="price">
+          $55.000
+        </div>
+
+        <small>
+          precio orientativo
+        </small>
+
+        <ul>
+          <li>Experiencia completa</li>
+          <li>Secciones personalizadas</li>
+          <li>Interacciones avanzadas</li>
+          <li>Mayor personalización</li>
+          <li>Soporte inicial</li>
+        </ul>
+
+        <a
+          class="btn btnOutline"
+          href="https://wa.me/5492622364099?text=Hola%20NAREVO%2C%20me%20interesa%20el%20plan%20Avanzado."
+          target="_blank"
+        >
+          Consultar
+        </a>
+
+      </article>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =========================
+     MANTENIMIENTO
+========================= -->
+
+<section class="maintenance">
+
+  <div class="container maintGrid">
+
+    <div class="reveal">
+
+      <span class="tag">
+        05 · MANTENIMIENTO
+      </span>
+
+      <h2>
+        Tu web no termina
+        cuando se publica.
+      </h2>
+
+      <p style="margin-top:18px">
+        Podés contar con mantenimiento mensual
+        para pequeños cambios, ajustes y
+        acompañamiento.
+      </p>
+
+    </div>
+
+
+    <div class="maintBox reveal">
+
+      <h3>
+        Soporte NAREVO
+      </h3>
+
+      <p>
+        Un servicio mensual pensado para
+        mantener tu sitio actualizado.
+      </p>
+
+      <div class="maintList">
+
+        <span>✓ Cambios de textos e imágenes</span>
+        <span>✓ Ajustes visuales</span>
+        <span>✓ Revisión general</span>
+        <span>✓ Soporte por WhatsApp</span>
+
+      </div>
+
+      <div class="maintPrice">
+        $8.000
+        <small>/ mes · orientativo</small>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =========================
+     CALCULADORA
+========================= -->
+
+<section class="calculator">
+
+  <div class="container">
+
+    <div class="sectionHead reveal">
+
+      <div>
+
+        <span class="tag">
+          06 · CALCULADOR
+        </span>
+
+        <h2>
+          Armá una idea
+          de presupuesto.
+        </h2>
+
+      </div>
+
+      <p>
+        Seleccioná algunas características
+        y obtené una referencia rápida.
+      </p>
+
+    </div>
+
+
+    <div class="calcGrid">
+
+      <div class="calcBox reveal">
+
+        <label class="option">
+          Landing de una página
+          <input
+            type="checkbox"
+            data-price="15000"
+            checked
+          >
+        </label>
+
+        <label class="option">
+          Diseño personalizado
+          <input
+            type="checkbox"
+            data-price="9000"
+          >
+        </label>
+
+        <label class="option">
+          Animaciones e interacciones
+          <input
+            type="checkbox"
+            data-price="7000"
+          >
+        </label>
+
+        <label class="option">
+          Formulario de contacto
+          <input
+            type="checkbox"
+            data-price="4000"
+          >
+        </label>
+
+        <label class="option">
+          Secciones extra
+          <input
+            type="checkbox"
+            data-price="6000"
+          >
+        </label>
+
+      </div>
+
+
+      <div class="resultBox reveal">
+
+        <p>
+          Estimación orientativa
+        </p>
+
+        <div
+          class="total"
+          id="total"
+        >
+          $15.000
+        </div>
+
+        <p>
+          El precio real se define
+          según el proyecto.
+        </p>
+
+        <a
+          class="btn btnWhite"
+          id="calculatorWhatsApp"
+          href="https://wa.me/5492622364099"
+          target="_blank"
+        >
+          Enviar consulta por WhatsApp ↗
+        </a>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =========================
+     FAQ
+========================= -->
+
+<section>
+
+  <div class="container faq">
+
+    <div class="reveal">
+
+      <span class="tag">
+        07 · FAQ
+      </span>
+
+      <h2>
+        Preguntas
+        frecuentes.
+      </h2>
+
+      <p style="margin-top:18px">
+        Algunas respuestas rápidas antes
+        de empezar un proyecto.
+      </p>
+
+    </div>
+
+
+    <div class="reveal">
+
+      <details>
+        <summary>
+          ¿La web funciona en celular?
+        </summary>
+
+        <p>
+          Sí. El diseño se adapta a celulares,
+          tablets y computadoras.
+        </p>
+      </details>
+
+
+      <details>
+        <summary>
+          ¿Puedo pedir cambios?
+        </summary>
+
+        <p>
+          Sí. Los cambios se coordinan
+          según el alcance de cada proyecto.
+        </p>
+      </details>
+
+
+      <details>
+        <summary>
+          ¿Puedo agregar más secciones?
+        </summary>
+
+        <p>
+          Sí. Se pueden agregar nuevas
+          secciones y funciones según
+          lo que necesite el negocio.
+        </p>
+      </details>
+
+
+      <details>
+        <summary>
+          ¿Cómo contacto a NAREVO?
+        </summary>
+
+        <p>
+          Directamente por WhatsApp al
+          +54 2622 36 40 99.
+        </p>
+      </details>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =========================
+     CONTACTO
+========================= -->
+
+<section class="contact" id="contacto">
+
+  <div class="container contactGrid">
+
+    <div class="reveal">
+
+      <span class="tag">
+        08 · CONTACTO
+      </span>
+
+      <h2>
+        ¿Listo para crear
+        tu próxima web?
+      </h2>
+
+      <p>
+        Contanos tu idea. NAREVO puede ayudarte
+        a convertirla en una presencia digital
+        profesional.
+      </p>
+
+      <a
+        class="btn btnPurple"
+        href="https://wa.me/5492622364099?text=Hola%20NAREVO%2C%20quiero%20crear%20una%20web."
+        target="_blank"
+      >
+        Empezar una consulta ↗
+      </a>
+
+    </div>
+
+
+    <div class="contactLinks reveal">
+
+      <a
+        class="contactLink"
+        href="https://wa.me/5492622364099"
+        target="_blank"
+      >
+        <b>📱 +54 2622 36 40 99</b>
+        <span>
+          WhatsApp directo de NAREVO
+        </span>
+      </a>
+
+
+      <a
+        class="contactLink"
+        href="https://wa.me/5492622364099?text=Hola%20NAREVO%2C%20quiero%20ver%20los%20servicios."
+        target="_blank"
+      >
+        <b>💬 Consultar servicios</b>
+        <span>
+          Diseño · desarrollo · mantenimiento
+        </span>
+      </a>
+
+
+      <a
+        class="contactLink"
+        href="https://wa.me/5492622364099?text=Hola%20NAREVO%2C%20quiero%20pedir%20un%20presupuesto."
+        target="_blank"
+      >
+        <b>💜 Pedir presupuesto</b>
+        <span>
+          Contanos qué necesitás
+        </span>
+      </a>
+
+    </div>
+
+  </div>
+
+</section>
+
+</main>
+
+
+<!-- =========================
+     FOOTER
+========================= -->
+
+<footer>
+
+  <div class="container footer">
+
+    <div class="footerLogo">
+      NAREVO
+    </div>
+
+    <div>
+      NAREVO Sites · Diseño web
+    </div>
+
+    <div>
+      © <span id="year"></span>
+    </div>
+
+  </div>
+
+</footer>
+
+
+<!-- WHATSAPP -->
+
+<a
+  class="whatsapp"
+  href="https://wa.me/5492622364099?text=Hola%20NAREVO%2C%20quiero%20consultar%20por%20una%20web."
+  target="_blank"
+  aria-label="Contactar con NAREVO por WhatsApp"
+>
+  💬
+</a>
+
+
+<script>
+
+/* =========================
+   HEADER
+========================= */
+
+const header = document.getElementById("header");
+
+window.addEventListener("scroll", () => {
+
+  if(window.scrollY > 20){
+    header.classList.add("scrolled");
+  }else{
+    header.classList.remove("scrolled");
+  }
+
+});
+
+
+/* =========================
+   MENU CELULAR
+========================= */
+
+const menu = document.getElementById("menu");
+const nav = document.getElementById("navlinks");
+
+menu.addEventListener("click", () => {
+
+  nav.classList.toggle("open");
+
+});
+
+document.querySelectorAll(".navlinks a").forEach(link => {
+
+  link.addEventListener("click", () => {
+
+    nav.classList.remove("open");
+
+  });
+
+});
+
+
+/* =========================
+   ANIMACIONES AL SCROLL
+========================= */
+
+const observer = new IntersectionObserver(
+  entries => {
+
+    entries.forEach(entry => {
+
+      if(entry.isIntersecting){
+
+        entry.target.classList.add("show");
+
+      }
+
+    });
+
+  },
+  {
+    threshold:.12
+  }
+);
+
+document.querySelectorAll(".reveal").forEach(element => {
+
+  observer.observe(element);
+
+});
+
+
+/* =========================
+   CALCULADORA
+========================= */
+
+const options =
+document.querySelectorAll(".option input");
+
+const total =
+document.getElementById("total");
+
+const calculatorWhatsApp =
+document.getElementById("calculatorWhatsApp");
+
+function calculate(){
+
+  let price = 0;
+
+  options.forEach(option => {
+
+    if(option.checked){
+
+      price += Number(option.dataset.price);
+
+    }
+
+  });
+
+  total.textContent =
+    "$" + price.toLocaleString("es-AR");
+
+  const message =
+    "Hola NAREVO, hice una estimación en la web y me interesa consultar por un proyecto de $" +
+    price.toLocaleString("es-AR") +
+    ".";
+
+  calculatorWhatsApp.href =
+    "https://wa.me/5492622364099?text=" +
+    encodeURIComponent(message);
+
+}
+
+options.forEach(option => {
+
+  option.addEventListener(
+    "change",
+    calculate
+  );
+
+});
+
+calculate();
+
+
+/* =========================
+   AÑO
+========================= */
+
+document.getElementById("year").textContent =
+  new Date().getFullYear();
+
+</script>
+
+</body>
+</html>
