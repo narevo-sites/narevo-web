@@ -1,0 +1,1357 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>NAREVO Sites — Creamos tu presencia digital</title>
+
+<meta name="description"
+content="NAREVO Sites crea páginas web modernas, rápidas y adaptadas a cualquier dispositivo.">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:Arial, Helvetica, sans-serif;
+    background:#ffffff;
+    color:#111111;
+    overflow-x:hidden;
+}
+
+/* =========================
+   VARIABLES
+========================= */
+
+:root{
+    --black:#090909;
+    --dark:#121212;
+    --purple:#7c3cff;
+    --purple2:#a66cff;
+    --light:#f5f3fa;
+    --gray:#666;
+}
+
+/* =========================
+   HEADER
+========================= */
+
+header{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:75px;
+    z-index:1000;
+
+    background:rgba(255,255,255,.88);
+    backdrop-filter:blur(15px);
+
+    border-bottom:1px solid rgba(0,0,0,.08);
+}
+
+.nav{
+    max-width:1200px;
+    height:100%;
+    margin:auto;
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+
+    padding:0 25px;
+}
+
+/* LOGO */
+
+.logo{
+    display:flex;
+    align-items:center;
+    gap:10px;
+
+    text-decoration:none;
+    color:#111;
+    font-weight:900;
+    letter-spacing:1px;
+    font-size:21px;
+}
+
+.logo-icon{
+    width:40px;
+    height:40px;
+
+    border-radius:50%;
+
+    background:
+        linear-gradient(145deg,#050505 30%,#7c3cff 70%);
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    color:white;
+    font-weight:900;
+
+    box-shadow:
+        0 5px 20px rgba(124,60,255,.25);
+}
+
+.logo span{
+    color:var(--purple);
+}
+
+/* MENU */
+
+nav ul{
+    list-style:none;
+
+    display:flex;
+    gap:30px;
+}
+
+nav a{
+    text-decoration:none;
+    color:#333;
+    font-size:14px;
+    font-weight:600;
+
+    transition:.25s;
+}
+
+nav a:hover{
+    color:var(--purple);
+}
+
+.menu-btn{
+    display:none;
+
+    border:0;
+    background:none;
+
+    font-size:28px;
+    cursor:pointer;
+}
+
+/* =========================
+   HERO
+========================= */
+
+.hero{
+    min-height:100vh;
+
+    display:flex;
+    align-items:center;
+
+    padding:120px 25px 70px;
+
+    position:relative;
+    overflow:hidden;
+}
+
+.hero::before{
+    content:"";
+
+    position:absolute;
+
+    width:600px;
+    height:600px;
+
+    border-radius:50%;
+
+    background:radial-gradient(
+        circle,
+        rgba(124,60,255,.16),
+        transparent 65%
+    );
+
+    right:-200px;
+    top:-100px;
+}
+
+.hero-content{
+    max-width:1200px;
+    width:100%;
+    margin:auto;
+
+    display:grid;
+    grid-template-columns:1.1fr .9fr;
+    gap:70px;
+
+    align-items:center;
+
+    position:relative;
+    z-index:2;
+}
+
+.badge{
+    display:inline-block;
+
+    padding:8px 14px;
+
+    border-radius:50px;
+
+    background:#f0ebff;
+    color:#6d32e8;
+
+    font-size:13px;
+    font-weight:bold;
+
+    margin-bottom:20px;
+}
+
+.hero h1{
+    font-size:clamp(45px,7vw,80px);
+    line-height:.95;
+
+    letter-spacing:-4px;
+
+    margin-bottom:25px;
+}
+
+.hero h1 span{
+    color:var(--purple);
+}
+
+.hero p{
+    max-width:570px;
+
+    color:#666;
+
+    font-size:18px;
+    line-height:1.7;
+
+    margin-bottom:35px;
+}
+
+.buttons{
+    display:flex;
+    gap:15px;
+    flex-wrap:wrap;
+}
+
+.btn{
+    padding:15px 24px;
+
+    border-radius:12px;
+
+    text-decoration:none;
+
+    font-weight:bold;
+
+    transition:.3s;
+
+    display:inline-block;
+}
+
+.btn-primary{
+    background:#111;
+    color:white;
+
+    box-shadow:0 10px 30px rgba(0,0,0,.15);
+}
+
+.btn-primary:hover{
+    transform:translateY(-3px);
+    background:var(--purple);
+}
+
+.btn-secondary{
+    border:1px solid #ddd;
+    color:#222;
+    background:white;
+}
+
+.btn-secondary:hover{
+    border-color:var(--purple);
+    color:var(--purple);
+}
+
+/* =========================
+   HERO CARD
+========================= */
+
+.hero-card{
+    position:relative;
+
+    background:#111;
+
+    min-height:430px;
+
+    border-radius:30px;
+
+    padding:25px;
+
+    box-shadow:
+        0 30px 80px rgba(0,0,0,.2);
+
+    overflow:hidden;
+}
+
+.hero-card::before{
+    content:"";
+
+    position:absolute;
+
+    width:300px;
+    height:300px;
+
+    border-radius:50%;
+
+    background:#7c3cff;
+
+    filter:blur(90px);
+
+    right:-100px;
+    top:-100px;
+
+    opacity:.65;
+}
+
+.browser{
+    position:relative;
+    z-index:2;
+
+    background:#fff;
+
+    border-radius:18px;
+
+    overflow:hidden;
+
+    box-shadow:0 20px 50px rgba(0,0,0,.3);
+}
+
+.browser-top{
+    height:40px;
+
+    display:flex;
+    align-items:center;
+
+    gap:6px;
+
+    padding:0 15px;
+
+    background:#eee;
+}
+
+.dot{
+    width:9px;
+    height:9px;
+
+    border-radius:50%;
+
+    background:#aaa;
+}
+
+.browser-content{
+    padding:30px;
+
+    min-height:320px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #fff,
+            #f1eaff
+        );
+}
+
+.mock-title{
+    width:70%;
+    height:20px;
+
+    background:#111;
+
+    border-radius:10px;
+
+    margin-bottom:15px;
+}
+
+.mock-text{
+    width:90%;
+    height:10px;
+
+    background:#ccc;
+
+    border-radius:10px;
+
+    margin-bottom:8px;
+}
+
+.mock-button{
+    width:120px;
+    height:35px;
+
+    border-radius:9px;
+
+    background:#7c3cff;
+
+    margin-top:20px;
+}
+
+/* =========================
+   SECTIONS
+========================= */
+
+section{
+    padding:100px 25px;
+}
+
+.section-container{
+    max-width:1200px;
+    margin:auto;
+}
+
+.section-title{
+    text-align:center;
+
+    max-width:700px;
+    margin:0 auto 60px;
+}
+
+.section-title small{
+    color:var(--purple);
+    font-weight:bold;
+    text-transform:uppercase;
+    letter-spacing:2px;
+}
+
+.section-title h2{
+    font-size:clamp(35px,5vw,55px);
+
+    margin:12px 0;
+
+    letter-spacing:-2px;
+}
+
+.section-title p{
+    color:#666;
+    line-height:1.7;
+}
+
+/* =========================
+   SERVICES
+========================= */
+
+.services{
+    background:#f7f6fa;
+}
+
+.cards{
+    display:grid;
+
+    grid-template-columns:
+        repeat(3,1fr);
+
+    gap:22px;
+}
+
+.card{
+    background:white;
+
+    border:1px solid #e8e5ed;
+
+    border-radius:20px;
+
+    padding:30px;
+
+    transition:.3s;
+}
+
+.card:hover{
+    transform:translateY(-8px);
+
+    box-shadow:
+        0 20px 50px rgba(0,0,0,.08);
+
+    border-color:#d6c5ff;
+}
+
+.icon{
+    width:55px;
+    height:55px;
+
+    border-radius:15px;
+
+    background:#eee8ff;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    font-size:25px;
+
+    margin-bottom:20px;
+}
+
+.card h3{
+    margin-bottom:10px;
+    font-size:21px;
+}
+
+.card p{
+    color:#666;
+    line-height:1.6;
+}
+
+/* =========================
+   PROCESS
+========================= */
+
+.process{
+    display:grid;
+
+    grid-template-columns:
+        repeat(4,1fr);
+
+    gap:20px;
+}
+
+.step{
+    position:relative;
+
+    padding:25px;
+
+    border-left:2px solid #ddd;
+}
+
+.step-number{
+    color:var(--purple);
+
+    font-size:13px;
+
+    font-weight:bold;
+
+    margin-bottom:15px;
+}
+
+.step h3{
+    margin-bottom:10px;
+}
+
+.step p{
+    color:#666;
+    line-height:1.6;
+    font-size:14px;
+}
+
+/* =========================
+   CTA
+========================= */
+
+.cta{
+    background:#0b0b0b;
+
+    color:white;
+
+    border-radius:35px;
+
+    max-width:1150px;
+
+    margin:0 auto;
+
+    padding:70px 40px;
+
+    text-align:center;
+
+    position:relative;
+    overflow:hidden;
+}
+
+.cta::before{
+    content:"";
+
+    position:absolute;
+
+    width:400px;
+    height:400px;
+
+    background:#7c3cff;
+
+    border-radius:50%;
+
+    filter:blur(120px);
+
+    opacity:.35;
+
+    left:-150px;
+    bottom:-200px;
+}
+
+.cta-content{
+    position:relative;
+    z-index:2;
+}
+
+.cta h2{
+    font-size:clamp(35px,5vw,55px);
+
+    letter-spacing:-2px;
+
+    margin-bottom:15px;
+}
+
+.cta p{
+    color:#bbb;
+
+    max-width:600px;
+
+    margin:0 auto 30px;
+
+    line-height:1.6;
+}
+
+.cta .btn{
+    background:white;
+    color:#111;
+}
+
+.cta .btn:hover{
+    background:var(--purple);
+    color:white;
+}
+
+/* =========================
+   CONTACT
+========================= */
+
+.contact{
+    background:#f7f6fa;
+}
+
+.contact-box{
+    max-width:750px;
+
+    margin:auto;
+
+    background:white;
+
+    padding:35px;
+
+    border-radius:25px;
+
+    border:1px solid #e5e2ea;
+}
+
+form{
+    display:grid;
+    gap:18px;
+}
+
+input,
+textarea{
+    width:100%;
+
+    border:1px solid #ddd;
+
+    border-radius:12px;
+
+    padding:15px;
+
+    font-family:inherit;
+
+    font-size:15px;
+
+    outline:none;
+
+    transition:.2s;
+}
+
+input:focus,
+textarea:focus{
+    border-color:var(--purple);
+
+    box-shadow:
+        0 0 0 3px rgba(124,60,255,.1);
+}
+
+textarea{
+    min-height:150px;
+
+    resize:vertical;
+}
+
+form button{
+    border:0;
+
+    cursor:pointer;
+
+    padding:16px;
+
+    border-radius:12px;
+
+    background:#111;
+
+    color:white;
+
+    font-weight:bold;
+
+    font-size:15px;
+
+    transition:.3s;
+}
+
+form button:hover{
+    background:var(--purple);
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+footer{
+    background:#090909;
+
+    color:white;
+
+    padding:50px 25px;
+}
+
+.footer-content{
+    max-width:1200px;
+
+    margin:auto;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    gap:30px;
+
+    flex-wrap:wrap;
+}
+
+.footer-logo{
+    font-size:22px;
+    font-weight:900;
+}
+
+.footer-logo span{
+    color:#8d5cff;
+}
+
+.footer-text{
+    color:#888;
+    font-size:13px;
+}
+
+/* =========================
+   ANIMATIONS
+========================= */
+
+.fade{
+    animation:fadeUp .8s ease both;
+}
+
+@keyframes fadeUp{
+
+    from{
+        opacity:0;
+        transform:translateY(25px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:850px){
+
+    nav ul{
+        position:absolute;
+
+        top:75px;
+        left:0;
+
+        width:100%;
+
+        background:white;
+
+        flex-direction:column;
+
+        gap:0;
+
+        padding:10px 25px;
+
+        display:none;
+
+        border-bottom:1px solid #ddd;
+    }
+
+    nav ul.active{
+        display:flex;
+    }
+
+    nav li{
+        padding:15px 0;
+    }
+
+    .menu-btn{
+        display:block;
+    }
+
+    .hero-content{
+        grid-template-columns:1fr;
+
+        gap:45px;
+    }
+
+    .hero{
+        padding-top:120px;
+    }
+
+    .hero-card{
+        min-height:350px;
+    }
+
+    .cards{
+        grid-template-columns:1fr;
+    }
+
+    .process{
+        grid-template-columns:1fr 1fr;
+    }
+
+}
+
+@media(max-width:550px){
+
+    .hero h1{
+        letter-spacing:-2px;
+    }
+
+    .hero p{
+        font-size:16px;
+    }
+
+    .buttons{
+        flex-direction:column;
+    }
+
+    .btn{
+        text-align:center;
+        width:100%;
+    }
+
+    section{
+        padding:75px 18px;
+    }
+
+    .process{
+        grid-template-columns:1fr;
+    }
+
+    .cta{
+        padding:55px 25px;
+        border-radius:25px;
+    }
+
+    .contact-box{
+        padding:22px;
+    }
+
+}
+</style>
+</head>
+
+<body>
+
+<!-- =========================
+     HEADER
+========================= -->
+
+<header>
+
+<div class="nav">
+
+<a href="#inicio" class="logo">
+    <div class="logo-icon">N</div>
+    NAREVO<span>.</span>
+</a>
+
+<nav>
+
+<button class="menu-btn" onclick="toggleMenu()">
+    ☰
+</button>
+
+<ul id="menu">
+
+<li>
+<a href="#inicio" onclick="closeMenu()">Inicio</a>
+</li>
+
+<li>
+<a href="#servicios" onclick="closeMenu()">Servicios</a>
+</li>
+
+<li>
+<a href="#proceso" onclick="closeMenu()">Proceso</a>
+</li>
+
+<li>
+<a href="#contacto" onclick="closeMenu()">Contacto</a>
+</li>
+
+</ul>
+
+</nav>
+
+</div>
+
+</header>
+
+
+<!-- =========================
+     HERO
+========================= -->
+
+<main>
+
+<section class="hero" id="inicio">
+
+<div class="hero-content">
+
+<div class="fade">
+
+<div class="badge">
+NAREVO SITES
+</div>
+
+<h1>
+Tu negocio.<br>
+Tu página.<br>
+<span>Tu futuro.</span>
+</h1>
+
+<p>
+Creamos páginas web modernas, rápidas y profesionales
+para que tu negocio tenga una presencia digital que destaque.
+</p>
+
+<div class="buttons">
+
+<a href="#contacto" class="btn btn-primary">
+Quiero mi página
+</a>
+
+<a href="#servicios" class="btn btn-secondary">
+Ver servicios
+</a>
+
+</div>
+
+</div>
+
+
+<div class="hero-card">
+
+<div class="browser">
+
+<div class="browser-top">
+
+<div class="dot"></div>
+<div class="dot"></div>
+<div class="dot"></div>
+
+</div>
+
+<div class="browser-content">
+
+<div class="mock-title"></div>
+
+<div class="mock-text"></div>
+<div class="mock-text"></div>
+<div class="mock-text"></div>
+
+<div class="mock-button"></div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =========================
+     SERVICES
+========================= -->
+
+<section class="services" id="servicios">
+
+<div class="section-container">
+
+<div class="section-title">
+
+<small>Servicios</small>
+
+<h2>
+Todo lo que tu negocio necesita.
+</h2>
+
+<p>
+Diseñamos soluciones digitales pensadas para que
+tu negocio se vea profesional y pueda crecer.
+</p>
+
+</div>
+
+
+<div class="cards">
+
+<div class="card">
+
+<div class="icon">🌐</div>
+
+<h3>Páginas web</h3>
+
+<p>
+Sitios modernos y adaptados a celulares,
+tablets y computadoras.
+</p>
+
+</div>
+
+
+<div class="card">
+
+<div class="icon">⚡</div>
+
+<h3>Alta velocidad</h3>
+
+<p>
+Optimizamos las páginas para que carguen
+rápido y ofrezcan una buena experiencia.
+</p>
+
+</div>
+
+
+<div class="card">
+
+<div class="icon">🎨</div>
+
+<h3>Diseño personalizado</h3>
+
+<p>
+Creamos una apariencia única para que
+tu negocio tenga su propia identidad.
+</p>
+
+</div>
+
+
+<div class="card">
+
+<div class="icon">📱</div>
+
+<h3>Diseño responsive</h3>
+
+<p>
+Tu página se adapta automáticamente
+a cualquier tamaño de pantalla.
+</p>
+
+</div>
+
+
+<div class="card">
+
+<div class="icon">🔧</div>
+
+<h3>Mantenimiento</h3>
+
+<p>
+Podemos realizar cambios y actualizaciones
+cuando tu negocio los necesite.
+</p>
+
+</div>
+
+
+<div class="card">
+
+<div class="icon">🚀</div>
+
+<h3>Preparada para crecer</h3>
+
+<p>
+Construimos sitios que pueden evolucionar
+junto con tu proyecto.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =========================
+     PROCESS
+========================= -->
+
+<section id="proceso">
+
+<div class="section-container">
+
+<div class="section-title">
+
+<small>Cómo trabajamos</small>
+
+<h2>
+De idea a página web.
+</h2>
+
+<p>
+Un proceso simple para transformar tu idea
+en una presencia digital profesional.
+</p>
+
+</div>
+
+
+<div class="process">
+
+<div class="step">
+
+<div class="step-number">
+01 — IDEA
+</div>
+
+<h3>Nos contás tu idea</h3>
+
+<p>
+Entendemos qué hace tu negocio y qué necesitás.
+</p>
+
+</div>
+
+
+<div class="step">
+
+<div class="step-number">
+02 — DISEÑO
+</div>
+
+<h3>Diseñamos</h3>
+
+<p>
+Creamos la estructura y apariencia de tu página.
+</p>
+
+</div>
+
+
+<div class="step">
+
+<div class="step-number">
+03 — DESARROLLO
+</div>
+
+<h3>Construimos</h3>
+
+<p>
+Convertimos el diseño en una página funcional.
+</p>
+
+</div>
+
+
+<div class="step">
+
+<div class="step-number">
+04 — LANZAMIENTO
+</div>
+
+<h3>Publicamos</h3>
+
+<p>
+Tu página queda lista para que tus clientes la visiten.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =========================
+     CTA
+========================= -->
+
+<section>
+
+<div class="cta">
+
+<div class="cta-content">
+
+<h2>
+¿Listo para empezar?
+</h2>
+
+<p>
+Hagamos que tu negocio tenga una presencia
+digital de la que puedas estar orgulloso.
+</p>
+
+<a href="#contacto" class="btn">
+Empezar ahora
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =========================
+     CONTACT
+========================= -->
+
+<section class="contact" id="contacto">
+
+<div class="section-container">
+
+<div class="section-title">
+
+<small>Contacto</small>
+
+<h2>
+Hablemos de tu proyecto.
+</h2>
+
+<p>
+Contanos qué necesitás y nos pondremos en contacto.
+</p>
+
+</div>
+
+
+<div class="contact-box">
+
+<form id="contactForm">
+
+<input
+type="text"
+placeholder="Tu nombre"
+required
+>
+
+<input
+type="email"
+placeholder="Tu email"
+required
+>
+
+<input
+type="text"
+placeholder="Nombre de tu negocio"
+>
+
+<textarea
+placeholder="Contanos qué página necesitás..."
+required
+></textarea>
+
+<button type="submit">
+Enviar solicitud
+</button>
+
+</form>
+
+</div>
+
+</div>
+
+</section>
+
+</main>
+
+
+<!-- =========================
+     FOOTER
+========================= -->
+
+<footer>
+
+<div class="footer-content">
+
+<div class="footer-logo">
+NAREVO<span>.</span>
+</div>
+
+<div class="footer-text">
+© 2026 NAREVO Sites. Todos los derechos reservados.
+</div>
+
+</div>
+
+</footer>
+
+
+<script>
+
+/* MENU */
+
+function toggleMenu(){
+
+    document
+    .getElementById("menu")
+    .classList.toggle("active");
+
+}
+
+function closeMenu(){
+
+    document
+    .getElementById("menu")
+    .classList.remove("active");
+
+}
+
+
+/* FORMULARIO */
+
+document
+.getElementById("contactForm")
+.addEventListener("submit", function(e){
+
+    e.preventDefault();
+
+    alert(
+        "¡Gracias por contactar con NAREVO! 🚀\n\n" +
+        "Este formulario es una demo. " +
+        "Más adelante podemos conectarlo a un sistema real."
+    );
+
+});
+
+</script>
+
+</body>
+</html>
